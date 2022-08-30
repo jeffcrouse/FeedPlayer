@@ -1,13 +1,11 @@
 #pragma once
 
-
-
 namespace feed {
 	class Mesh
 	{
 	public:
 		~Mesh();
-		void init();
+		void make_quad(float x, float y, float w, float h);
 		void draw();
 
 	protected:

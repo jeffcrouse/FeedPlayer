@@ -1,4 +1,6 @@
 #include "Shader.h"
+#include <iostream>
+#include <GL/glew.h>
 
 using namespace feed;
 
@@ -37,6 +39,7 @@ void Shader::init()
 
 	int success;
 	char infoLog[512];
+	char error[255];
 
 	GLuint vs = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vs, 1, &vertex_shader, NULL);
@@ -45,7 +48,8 @@ void Shader::init()
 	if (!success)
 	{
 		glGetShaderInfoLog(vs, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+		sprintf_s(error, "[Vertex Shader Compilation Error]\n%s\n", infoLog);
+		throw std::runtime_error(error);
 		return;
 	}
 
@@ -57,8 +61,8 @@ void Shader::init()
 	if (!success)
 	{
 		glGetShaderInfoLog(fs, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-		return;
+		sprintf_s(error, "[Fragment Shader Compilation Error]\n%s\n", infoLog);
+		throw std::runtime_error(error);
 	}
 
 
@@ -70,8 +74,8 @@ void Shader::init()
 	if (!success)
 	{
 		glGetProgramInfoLog(id, 512, NULL, infoLog);
-		std::cout << "ERROR::SHADER::LINKER::COMPILATION_FAILED\n" << infoLog << std::endl;
-		return;
+		sprintf_s(error, "[Shader Linker Error]\n%s\n", infoLog);
+		throw std::runtime_error(error);
 	}
 
 	glDeleteShader(vs);

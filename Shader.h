@@ -1,7 +1,4 @@
 #pragma once
-#include <iostream>
-#define GLEW_STATIC
-#include <GL/glew.h>
 
 namespace feed {
 	class Shader
@@ -12,7 +9,7 @@ namespace feed {
 		void unbind();
 
 	protected:
-		GLuint id;
+		unsigned int id;
 	};
 }
 

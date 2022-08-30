@@ -29,10 +29,11 @@ Window::Window() : framerate(90), clearColor(0.2f, 0.3f, 0.3f), width(800), heig
 		glfwTerminate();
 		throw std::runtime_error("Failed to create GLFW window");
 	}
+
 	glfwMakeContextCurrent(window);
 	glfwSetWindowUserPointer(window, this);
-
 	glfwSetWindowPos(window, xpos, ypos);
+
 
 	glViewport(0, 0, 800, 600);
 	glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
@@ -81,9 +82,8 @@ void Window::setup()
 {
 	set_size(1920, 1080);
 
-	texture.init();
 	video.load("video.mp4");
-	mesh.init();
+	mesh.make_quad(0, 0, 1, 1);
 	shader.init();
 	video.play();
 }

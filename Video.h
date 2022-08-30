@@ -1,6 +1,4 @@
 #pragma once
-
-#include <iostream>
 #include <vlc/vlc.h>
 #include <mutex>
 #include "Texture.h"

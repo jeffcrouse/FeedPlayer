@@ -6,7 +6,7 @@ using namespace feed;
 
 
 // --------------------------------------------------------------------------------------
-void Texture::init()
+Texture::Texture()
 {
 	glGenTextures(1, &id);
 
@@ -21,6 +21,12 @@ void Texture::init()
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+// --------------------------------------------------------------------------------------
+Texture::~Texture()
+{
+	glDeleteTextures(1, &id);
 }
 
 // --------------------------------------------------------------------------------------

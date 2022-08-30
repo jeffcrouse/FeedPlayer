@@ -4,7 +4,8 @@ namespace feed {
 	class Texture
 	{
 	public:
-		void init();
+		Texture();
+		~Texture();
 		void bind();
 		void unbind();
 		void set(unsigned char* data, unsigned int width, unsigned int height);

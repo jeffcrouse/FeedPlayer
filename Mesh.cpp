@@ -1,5 +1,4 @@
 #include "Mesh.h"
-#define GLEW_STATIC
 #include <GL/glew.h>
 
 using namespace feed;
@@ -12,15 +11,15 @@ Mesh::~Mesh() {
 }
 
 // --------------------------------------------------------------------------------------
-void Mesh::init() {
+void Mesh::make_quad(float x, float y, float w, float h)
+{
 
-	float s = 0.8f;
 	float vertices[] = {
-		// positions          // colors           // texture coords
-		 s,  s, 0.0f,		  1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-		 s, -s, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
-		-s, -s, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-		-s,  s, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
+		// positions				// colors           // texture coords
+		x+w,	y,		0.0f,		1.0f, 0.0f, 0.0f,   1.0f, 1.0f,		// top right
+		x+w,	y+h,	0.0f,		0.0f, 1.0f, 0.0f,   1.0f, 0.0f,		// bottom right
+		x,		y+h,	0.0f,		0.0f, 0.0f, 1.0f,   0.0f, 0.0f,		// bottom left
+		x,		y,		0.0f,		1.0f, 1.0f, 0.0f,   0.0f, 1.0f		// top left 
 	};
 	unsigned int indices[] = {
 		0, 1, 3, // first triangle

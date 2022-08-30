@@ -1,4 +1,5 @@
 #include "Video.h"
+#include <iostream>
 #include <sstream>
 #include <filesystem>
 
@@ -10,7 +11,6 @@ libvlc_instance_t* Video::inst = NULL;
 // --------------------------------------------------------------------------------------
 Video::Video() {
 	Video::init();
-	
 }
 
 // --------------------------------------------------------------------------------------
@@ -26,7 +26,10 @@ void Video::init() {
 		//int argc = sizeof(argv) / sizeof(*argv);
 		Video::inst = libvlc_new(2, argv);
 		if (inst == NULL) {
-			throw new std::exception("[VLC error] Couldn't make instance.");
+			throw std::runtime_error("[VLC error] Couldn't make instance.");
+		}
+		else {
+			std::cout << "libvlc inited" << std::endl;
 		}
 	} else {
 		libvlc_retain(Video::inst);
