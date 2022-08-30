@@ -10,6 +10,5 @@ namespace feed {
 		void set(unsigned char* data, unsigned int width, unsigned int height);
 	protected:
 		unsigned int id;
-
 	};
 }

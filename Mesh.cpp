@@ -14,12 +14,13 @@ Mesh::~Mesh() {
 // --------------------------------------------------------------------------------------
 void Mesh::init() {
 
+	float s = 0.8f;
 	float vertices[] = {
 		// positions          // colors           // texture coords
-		 1.0f,  1.0f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-		 1.0f, -1.0f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
-		-1.0f, -1.0f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-		-1.0f,  1.0f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
+		 s,  s, 0.0f,		  1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+		 s, -s, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+		-s, -s, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+		-s,  s, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
 	};
 	unsigned int indices[] = {
 		0, 1, 3, // first triangle

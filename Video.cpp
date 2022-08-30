@@ -34,8 +34,8 @@ void Video::init() {
 }
 
 // --------------------------------------------------------------------------------------
-void Video::load(std::string path) {
-
+void Video::load(std::string path)
+{
 	if (!std::filesystem::exists(path)) {
 		throw std::runtime_error(path + " does not exist");
 	}
