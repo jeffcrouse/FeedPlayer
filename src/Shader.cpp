@@ -87,7 +87,7 @@ void Shader::bind(double t)
 {
 	glUseProgram(id);
 	GLint tLoc = glGetUniformLocation(id, "t");
-	glUniform1f(tLoc, t);
+	glUniform1f((GLfloat)tLoc, t);
 }
 
 // --------------------------------------------------------------------------------------
